@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hangman Game</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Hangman Game</h1>
+    <p>Guess the word by choosing letters!</p>
+
+    <!-- Word display -->
+    <div id="word" class="word"></div>
+
+    <!-- Wrong letters -->
+    <div class="wrong-container">
+      <p>Wrong letters:</p>
+      <span id="wrong-letters"></span>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">You have already used this letter</div>
+
+    <!-- Hangman figure -->
+    <svg height="250" width="200" class="figure-container" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+      <!-- Pole (not part of reveal) -->
+      <line x1="60" y1="20" x2="140" y2="20" stroke="#2c3e50" stroke-width="4"/>
+      <line x1="60" y1="20" x2="60" y2="230" stroke="#2c3e50" stroke-width="4"/>
+      <line x1="20" y1="230" x2="100" y2="230" stroke="#2c3e50" stroke-width="4"/>
+
+      <!-- Noose + Head (noose appears with head) -->
+      <line x1="140" y1="20" x2="140" y2="50" class="figure-part" stroke="black"/>
+      <circle cx="140" cy="70" r="20" class="figure-part" stroke="black" fill="none"/>
+
+      <!-- Body -->
+      <line x1="140" y1="90" x2="140" y2="150" class="figure-part" stroke="black"/>
+
+      <!-- Left Arm -->
+      <line x1="140" y1="120" x2="120" y2="100" class="figure-part" stroke="black"/>
+
+      <!-- Right Arm -->
+      <line x1="140" y1="120" x2="160" y2="100" class="figure-part" stroke="black"/>
+
+      <!-- Both legs grouped as one "part" so they appear together -->
+      <g class="figure-part">
+        <line x1="140" y1="150" x2="120" y2="180" stroke="black"/>
+        <line x1="140" y1="150" x2="160" y2="180" stroke="black"/>
+      </g>
+    </svg>
+
+    <!-- Final message -->
+    <div id="final-message-container" class="popup-container">
+      <div class="popup">
+        <h2 id="final-message"></h2>
+        <button id="play-button">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
